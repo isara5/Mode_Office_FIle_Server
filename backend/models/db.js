@@ -298,6 +298,33 @@ async function initDB() {
       )
     `);
 
+    // Ensure rich asset register columns exist
+    const assetCols = [
+      { name: "equipment_category", type: "VARCHAR(100) NULL" },
+      { name: "equipment_name", type: "VARCHAR(255) NULL" },
+      { name: "brand", type: "VARCHAR(255) NULL" },
+      { name: "model", type: "VARCHAR(255) NULL" },
+      { name: "asset_tag_number", type: "VARCHAR(100) NULL" },
+      { name: "processor", type: "VARCHAR(255) NULL" },
+      { name: "storage", type: "VARCHAR(100) NULL" },
+      { name: "ram", type: "VARCHAR(100) NULL" },
+      { name: "operating_system", type: "VARCHAR(100) NULL" },
+      { name: "ip_address", type: "VARCHAR(100) NULL" },
+      { name: "division", type: "VARCHAR(100) NULL" },
+      { name: "assigned_officer", type: "VARCHAR(255) NULL" },
+      { name: "designation", type: "VARCHAR(100) NULL" },
+      { name: "equipment_condition", type: "VARCHAR(100) NULL" },
+      { name: "operational_status", type: "VARCHAR(100) NULL" },
+      { name: "remarks", type: "TEXT NULL" },
+      { name: "qr_code_data", type: "TEXT NULL" },
+      { name: "qr_code_path", type: "VARCHAR(255) NULL" },
+    ];
+    for (const c of assetCols) {
+      if (!(await columnExists(conn, "assets", c.name))) {
+        await conn.query(`ALTER TABLE assets ADD COLUMN \`${c.name}\` ${c.type}`);
+      }
+    }
+
     await conn.query(`
       CREATE TABLE IF NOT EXISTS project_activities (
         id          INT AUTO_INCREMENT PRIMARY KEY,
