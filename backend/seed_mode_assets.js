@@ -1149,7 +1149,7 @@ const assetsData = [
     remarks: "-"
   },
 
-  // Page 6: General-admin Division (2 assets)
+  // Page 6: General-admin (Part of Administration Division - Total 18 assets)
   {
     asset_id: "MoDE/GEN-ADMIN/001",
     equipment_category: "Printer",
@@ -1163,7 +1163,7 @@ const assetsData = [
     ram: "-",
     operating_system: "-",
     ip_address: "-",
-    division: "General-admin",
+    division: "Administration",
     assigned_officer: "-",
     designation: "-",
     equipment_condition: "Good",
@@ -1183,7 +1183,7 @@ const assetsData = [
     ram: "-",
     operating_system: "-",
     ip_address: "-",
-    division: "General-admin",
+    division: "Administration",
     assigned_officer: "-",
     designation: "-",
     equipment_condition: "Good",

@@ -46,7 +46,6 @@ const DIVISIONS = [
   "Commercialization",
   "Development",
   "General",
-  "General-admin",
   "Ict",
   "Internal audit",
   "Planning",
